@@ -1,32 +1,23 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { Button } from "react-bootstrap";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SignIn from "./pages/login/SignIn";
+import ResetPassword from "./pages/resetPassword/ResetPassword";
+import SentEmailScreen from "./pages/resetPassword/SentEmailScreen";
+import CreateNewPassword from "./pages/resetPassword/CreateNewPassword";
+import SignUpScreen from "./pages/signUpScreen/SignUpScreen";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <div className="d-flex gap-3">
-          <Button variant="primary" className="">
-            Primary
-          </Button>
-          <Button variant="secondary">Secondary</Button>
-        </div>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/sent-email" element={<SentEmailScreen />} />
+        <Route path="/create-newPassword" element={<CreateNewPassword />} />
+        <Route path="/sign-up" element={<SignUpScreen />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,0 +1,156 @@
+body{
+      font-family: "Inria Serif", serif;
+      font-size: 14px;
+
+}
+.bgSignin{
+    background-image: url(/public/images/bg-signIn.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.primaryColor{
+    color: #2E5A88;
+}
+.bgPrimary{
+    color: #2E5A88;
+}
+.btnPrimary{ padding: 12px 16px;
+     border-radius: 8px; 
+    font-size: 16px;
+      font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    color: white;
+    border: none;
+    background-color: #2E5A88;
+}
+.btnForget{
+font-weight: 700;
+font-size: 14px;
+color: var(--Main-trunks, #595D62);
+  font-family: "DM Sans", sans-serif;
+  border: none;
+  padding: 0;
+
+
+
+}
+.signContentWrapper{
+    max-width: 450px;
+}
+.signinWrapper{
+    padding: 0 90px;
+    width: 100%;
+}
+.signIn-heading{
+    font-size: 65px;
+    color: white;
+    font-weight: 700;
+}
+.likeBody{
+    padding: 0 0 0 92px;
+}
+.heading32{
+    font-size: 32px;
+    font-weight:700;
+    color: white;
+}
+.heading40{
+    font-size: 40px;
+    font-weight:700;
+}
+.font24{
+    font-size: 24px;
+}
+.signIn-form{
+    background: #F5F5F5;
+    border-radius: 12px;
+    padding: 24px;
+    width: 500px;
+   
+}
+.pwdShow{
+    font-size: 14px;
+    color: black;
+    text-decoration: underline;
+  font-family: "DM Sans", sans-serif;
+  padding: 0;
+  border: none;
+  background: transparent;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+.custom-checkbox .form-check-input {
+  background-color: transparent; /* Default transparent background */
+  border: 2px solid #2E5A88; /* Dark border */
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-checkbox .form-check-input:checked {
+  background-color: #2E5A88;
+  border-color: #2E5A88; 
+}
+
+.custom-checkbox .form-check-label {
+  margin-left: 12px; 
+}
+.divider{
+    margin: 20px 0 12px 0;
+    color: #E2E2E2;
+}
+.dontHave{
+    font-size: 14px;
+    color: #595D62;
+      font-family: "DM Sans", sans-serif;
+}
+.btnSignUp{
+    font-size: 14px;
+    font-weight: 700;
+    color: #2E5A88;
+    border: none;
+    background: transparent;
+}
+p.emailContent{
+    font-size: 20px;
+    color: #24292E;
+}
+img.profilePicture{
+    height: 64px;
+    width: 64px;
+    border: 1px solid #E2E2E2;
+    border-radius: 100%;
+    position: relative;
+   
+}
+button.profileEdit{
+    background-color: white;
+    box-shadow: 0px 0px 1px 0px #00000066;
+    box-shadow: 0px 6px 6px -6px #00000029;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -6px;
+    right: 43%;
+    border: none;
+    border-radius: 100%;
+   
+}
+.prsnlDtl{
+    
+          font-family: "DM Sans", sans-serif;
+
+}
+.custom-progress .progress-bar {
+  background-color: #2E5A88 !important; /* Custom filled color */
+  height: 4px;
+}
+.custom-progress {
+  height: 4px !important;
+}
