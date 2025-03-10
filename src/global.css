@@ -3,6 +3,10 @@ body{
       font-size: 14px;
 
 }
+button{
+          font-family: "DM Sans", sans-serif !important;
+
+}
 .bgSignin{
     background-image: url(/public/images/bg-signIn.png);
     background-position: center;
@@ -25,6 +29,16 @@ body{
     border: none;
     background-color: #2E5A88;
 }
+.btnSecondary{ 
+    padding: 12px 16px;
+     border-radius: 8px; 
+    font-size: 16px;
+      font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    color: black;
+    border: 1px solid #595D62;
+    background-color: transparent;
+}
 .btnForget{
 font-weight: 700;
 font-size: 14px;
@@ -42,6 +56,7 @@ color: var(--Main-trunks, #595D62);
 .signinWrapper{
     padding: 0 90px;
     width: 100%;
+    max-width: 1440px;
 }
 .signIn-heading{
     font-size: 65px;
@@ -190,4 +205,97 @@ button.profileEdit{
   width: 36px;
   height: 36px;
   text-align: center;
+}
+.btnSignin{
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: white;
+    background-color: #2E5A88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+   
+}
+.navLinks{
+    font-size: 16px;
+    font-weight: 500;
+    color: #2E5A88;
+    font-family: "DM Sans", sans-serif;
+}
+.navLinks:hover{
+box-shadow: 0px -2px 0px 0px #2E5A88 inset;
+}
+.exploreBox{
+    background-color: #2E5A88;
+    border-radius: 16px;
+    padding: 24px;
+    color: white;
+    margin: 22px 0 30px;
+  
+}
+.exploreBox h2.title{
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.exploreBox p.content{
+    font-size:16px;
+    font-family: "DM Sans", sans-serif;
+}
+input.searchInput{
+    border: 1px solid #E2E2E2;
+    border-radius: 8px;
+    padding: 8px 8px 8px 36px;
+    width: 308px;
+  
+}
+.searchIcon{
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+}
+.bookCard{
+ border: 1px solid  #E2E2E2;
+ box-shadow: 0px 0px 1px 0px #00000066;
+ box-shadow: 0px 8px 24px -6px #00000029;
+ background-color: white;
+ border-radius: 16px;
+
+}
+.bookImg{
+    width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.cardContent{
+    padding: 16px 12px;
+
+}
+.author{
+    font-size: 10px;
+    color: #595D62;
+}
+.authorName{
+    font-size: 12px;
+    font-weight: 700;
+    color: #595D62;
+}
+.availableTag{
+    padding: 0 4px;
+    border-radius: 4px;
+    background-color: #40A69F;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+}
+.reservedTag{
+    background-color: black;
+}
+.bookSold{
+    font-size: 12px;
+    font-weight: 700;
+    color: #595D62;
 }
