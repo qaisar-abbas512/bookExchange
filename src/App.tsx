@@ -6,6 +6,7 @@ import ResetPassword from "./pages/resetPassword/ResetPassword";
 import SentEmailScreen from "./pages/resetPassword/SentEmailScreen";
 import CreateNewPassword from "./pages/resetPassword/CreateNewPassword";
 import SignUpScreen from "./pages/signUpScreen/SignUpScreen";
+import SentApprovalEmail from "./pages/signUpScreen/SentApprovalEmail";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/sent-email" element={<SentEmailScreen />} />
         <Route path="/create-newPassword" element={<CreateNewPassword />} />
         <Route path="/sign-up" element={<SignUpScreen />} />
+        <Route path="/approval-email" element={<SentApprovalEmail />} />
       </Routes>
     </Router>
   );
