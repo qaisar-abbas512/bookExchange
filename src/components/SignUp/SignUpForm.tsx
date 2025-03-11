@@ -1,11 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+
 import { Col, Row } from "react-bootstrap";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
-import ProgressBar from "react-bootstrap/ProgressBar";
-import { Tooltip, OverlayTrigger, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { signupUser } from "../../services/services";
 
 const SignUpForm = () => {
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    username: "",
+    mobile: "",
+    address: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    role: "user",
+  });
+
+  const [profileImage, setProfileImage] = useState<File | null>(null);
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    // Clear error on change
+    setErrors((prevErrors) => ({ ...prevErrors, [e.target.name]: "" }));
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setProfileImage(e.target.files[0]);
+      setErrors((prevErrors) => ({ ...prevErrors, profileImage: "" }));
+    }
+  };
+
+  const validateForm = () => {
+    let newErrors: { [key: string]: string } = {};
+
+    Object.entries(formData).forEach(([key, value]) => {
+      if (!value.trim()) {
+        newErrors[key] = "This field is required";
+      }
+    });
+
+    if (!profileImage) {
+      newErrors.profileImage = "Profile image is required";
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = "Passwords do not match";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    setLoading(true);
+    const formPayload = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      formPayload.append(key, value);
+    });
+    if (profileImage) {
+      formPayload.append("profileImage", profileImage);
+    }
+
+    try {
+      const data = await signupUser(formPayload);
+      toast.success(data.message);
+    } catch (err: any) {
+      setError(err);
+      toast.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <div className="signIn-form">
@@ -13,125 +96,152 @@ const SignUpForm = () => {
         <div className="position-relative text-center mb-4">
           <img
             className="profilePicture"
-            src="/images/user-icon.svg"
+            src={
+              profileImage
+                ? URL.createObjectURL(profileImage)
+                : "/images/user-icon.svg"
+            }
             alt="profile"
           />
-          <button className="profileEdit">
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="d-none"
+            id="profileUpload"
+          />
+          <label htmlFor="profileUpload" className="profileEdit">
             <img src="/images/edit-Icon.svg" alt="edit" />
-          </button>
-        </div>
-        <div className="mb-4">
-          <div className="prsnlDtl d-flex align-items-center justify-content-between mb-3">
-            <h3 className="fs-6 fw-bold mb-0">Personal Details</h3>
-            {/* show this div when user click on next button */}
-            {/* <h3 className="fs-6 fw-bold mb-0">Security Details</h3> */}
-            <button className="d-flex align-items-center gap-1 border-0 bg-transparent">
-              Next <img src="/images/right-arrow-Icon.svg" alt="arrow" />
-            </button>
-            {/* show this button when user click on next button */}
-            {/* <button className="d-flex align-items-center gap-1 border-0 bg-transparent">
-              Back <img src="/images/left-arrow-Icon.svg" alt="arrow" />
-            </button> */}
-          </div>
-          <ProgressBar now={50} className="custom-progress" />
+          </label>
+          {errors.profileImage && (
+            <div className="text-danger mt-2">{errors.profileImage}</div>
+          )}
         </div>
 
-        {/* <div className="mb-5">
-          <FloatingLabel
-            controlId="floatingInput"
-            label="First Name"
-            className="mb-3"
-          >
-            <Form.Control type="text" placeholder="" />
-          </FloatingLabel>
-          <FloatingLabel
-            controlId="floatingInput"
-            label="Last Name"
-            className="mb-3"
-          >
-            <Form.Control type="text" placeholder="" />
-          </FloatingLabel>
-          <FloatingLabel
-            controlId="floatingInput"
-            label="Username"
-            className="mb-3"
-          >
-            <Form.Control type="text" placeholder="" />
-          </FloatingLabel>
+        <Form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <FloatingLabel label="First Name" className="mb-3">
+              <Form.Control
+                name="firstName"
+                type="text"
+                placeholder=""
+                onChange={handleChange}
+                isInvalid={!!errors.firstName}
+              />
+              <Form.Control.Feedback type="invalid">
+                {errors.firstName}
+              </Form.Control.Feedback>
+            </FloatingLabel>
+            <FloatingLabel label="Last Name" className="mb-3">
+              <Form.Control
+                name="lastName"
+                type="text"
+                placeholder=""
+                onChange={handleChange}
+                isInvalid={!!errors.lastName}
+              />
+              <Form.Control.Feedback type="invalid">
+                {errors.lastName}
+              </Form.Control.Feedback>
+            </FloatingLabel>
+            <FloatingLabel label="Username" className="mb-3">
+              <Form.Control
+                name="username"
+                type="text"
+                placeholder=""
+                onChange={handleChange}
+                isInvalid={!!errors.username}
+              />
+              <Form.Control.Feedback type="invalid">
+                {errors.username}
+              </Form.Control.Feedback>
+            </FloatingLabel>
+            <FloatingLabel label="Mobile No." className="mb-3">
+              <Form.Control
+                name="mobile"
+                type="tel"
+                placeholder=""
+                onChange={handleChange}
+                isInvalid={!!errors.mobile}
+              />
+              <Form.Control.Feedback type="invalid">
+                {errors.mobile}
+              </Form.Control.Feedback>
+            </FloatingLabel>
+            <FloatingLabel label="Address" className="mb-3">
+              <Form.Control
+                name="address"
+                type="text"
+                placeholder=""
+                onChange={handleChange}
+                isInvalid={!!errors.address}
+              />
+              <Form.Control.Feedback type="invalid">
+                {errors.address}
+              </Form.Control.Feedback>
+            </FloatingLabel>
+            <FloatingLabel label="Role" className="mb-3">
+              <Form.Select
+                name="role"
+                onChange={handleChange}
+                value={formData.role}
+                isInvalid={!!errors.role}
+              >
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </Form.Select>
+              <Form.Control.Feedback type="invalid">
+                {errors.role}
+              </Form.Control.Feedback>
+            </FloatingLabel>
+          </div>
+          <div className="mb-3">
+            <FloatingLabel label="Email address" className="mb-3">
+              <Form.Control
+                name="email"
+                type="email"
+                placeholder="name@example.com"
+                onChange={handleChange}
+                isInvalid={!!errors.email}
+              />
+              <Form.Control.Feedback type="invalid">
+                {errors.email}
+              </Form.Control.Feedback>
+            </FloatingLabel>
+            <FloatingLabel label="Password" className="mb-3">
+              <Form.Control
+                name="password"
+                type="password"
+                placeholder="Password"
+                onChange={handleChange}
+                isInvalid={!!errors.password}
+              />
+              <Form.Control.Feedback type="invalid">
+                {errors.password}
+              </Form.Control.Feedback>
+            </FloatingLabel>
+            <FloatingLabel label="Confirm Password" className="mb-3">
+              <Form.Control
+                name="confirmPassword"
+                type="password"
+                placeholder="Confirm Password"
+                onChange={handleChange}
+                isInvalid={!!errors.confirmPassword}
+              />
+              <Form.Control.Feedback type="invalid">
+                {errors.confirmPassword}
+              </Form.Control.Feedback>
+            </FloatingLabel>
+          </div>
 
-          <FloatingLabel
-            controlId="floatingInput"
-            label="Mobile No."
-            className="mb-3"
+          <Button
+            type="submit"
+            className="btnPrimary w-100 mb-3"
+            disabled={loading}
           >
-            <Form.Control type="tel" placeholder="" />
-          </FloatingLabel>
-          <FloatingLabel
-            controlId="floatingInput"
-            label="Address"
-            className="mb-3"
-          >
-            <Form.Control type="text" placeholder="" />
-          </FloatingLabel>
-        </div> */}
-        <div className="mb-3">
-          <div className="position-relative">
-            <FloatingLabel
-              controlId="floatingInput"
-              label="Email address"
-              className="mb-3"
-            >
-              <Form.Control type="email" placeholder="name@example.com" />
-            </FloatingLabel>
-            <FloatingLabel
-              controlId="floatingPassword"
-              label="Password"
-              className="mb-3"
-            >
-              <Form.Control type="password" placeholder="Password" />
-            </FloatingLabel>
-            <button className="pwdShow 2">Show</button>
-          </div>
-          <div className="d-flex align-items-center gap-2 mb-3">
-            <Row className="gap-1 w-100">
-              <Col>
-                <div className="weakpswd Password"></div>
-              </Col>
-              <Col>
-                <div className="moderatepswd Password"></div>
-              </Col>
-              <Col>
-                <div className="strongpswd Password"></div>
-              </Col>
-              <Col>
-                <div className="securepswd Password"></div>
-              </Col>
-            </Row>{" "}
-            <div>
-              <span className="toolltips">
-                <img src="/images/question-mark-icon.svg" alt="tooltip" />
-              </span>
-            </div>
-          </div>
-          <div className="position-relative">
-            <FloatingLabel
-              controlId="floatingPassword"
-              label="Confirm Password"
-              className="mb-3"
-            >
-              <Form.Control type="password" placeholder="Confirm Password" />
-            </FloatingLabel>
-            <button className="pwdShow">Show</button>
-          </div>
-          <button className="btnPrimary w-100 mb-3">Create account</button>
-          <div className="infoIcon mb-2">
-            <img src="/images/info-icon.svg" alt="info" />
-          </div>
-          <p className="prsnlDtl">
-            An email will be sent to admin for approval, once approved, you will
-            receive an email so you will be able to login from there
-          </p>
-        </div>
+            {loading ? "Creating account..." : "Create account"}
+          </Button>
+        </Form>
         <hr className="divider" />
         <div className="dontHave">
           Already have an account?<button className="btnSignUp">Log in</button>
