@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { loginUser } from "../../services/services";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const SignInForm: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -119,9 +120,9 @@ const SignInForm: React.FC = () => {
 
         <div className="dontHave">
           Don’t have an account?
-          <button type="button" className="btnSignUp">
+          <Link to="/sign-up" type="button" className="btnSignUp ms-1">
             Sign up
-          </button>
+          </Link>
         </div>
       </Form>
     </div>
