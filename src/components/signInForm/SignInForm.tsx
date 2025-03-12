@@ -8,7 +8,6 @@ const SignInForm: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -39,19 +38,15 @@ const SignInForm: React.FC = () => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    setError("");
     setLoading(true);
 
     try {
       const data = await loginUser(email, password);
-      console.log("Login Successful:", data);
       toast.success(data.message);
       localStorage.setItem("token", data.token);
-      window.location.href = "/";
       navigate("/");
     } catch (err: any) {
       toast.error(err);
-      setError("Invalid email or password");
     } finally {
       setLoading(false);
     }

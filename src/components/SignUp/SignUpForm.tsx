@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { Col, Row } from "react-bootstrap";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { signupUser } from "../../services/services";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
   const [step, setStep] = useState(1);
+  const navigate = useNavigate();
   const totalSteps = 2;
-  const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -127,8 +126,8 @@ const SignUpForm = () => {
     try {
       const data = await signupUser(formPayload);
       toast.success(data.message);
+      navigate("/approval-email");
     } catch (err: any) {
-      setError(err);
       toast.error(err);
     } finally {
       setLoading(false);

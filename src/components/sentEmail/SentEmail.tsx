@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 interface SentEmailProps {
   title: string;
   message: string;
@@ -11,7 +12,10 @@ const SentEmail: React.FC<SentEmailProps> = ({ title, message }) => {
       <p className="emailContent">{message}</p>
       <hr className="divider" />
       <div className="dontHave">
-        Need to Login? <button className="btnSignUp">Sign in</button>
+        Need to Login?{" "}
+        <Link to="/sign-in" className="btnSignUp">
+          Sign in
+        </Link>
       </div>
     </div>
   );
