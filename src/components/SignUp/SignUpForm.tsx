@@ -12,6 +12,9 @@ const SignUpForm = () => {
   const totalSteps = 2;
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const ProgressBar = ({ step }: { step: number }) => {
     const progress = (step / totalSteps) * 100;
@@ -269,32 +272,50 @@ const SignUpForm = () => {
                   {errors.email}
                 </Form.Control.Feedback>
               </FloatingLabel>
-              <FloatingLabel label="Password" className="mb-3">
-                <Form.Control
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  isInvalid={!!errors.password}
-                />
-                <Form.Control.Feedback type="invalid">
-                  {errors.password}
-                </Form.Control.Feedback>
-              </FloatingLabel>
-              <FloatingLabel label="Confirm Password" className="mb-3">
-                <Form.Control
-                  name="confirmPassword"
-                  type="password"
-                  placeholder="Confirm Password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  isInvalid={!!errors.confirmPassword}
-                />
-                <Form.Control.Feedback type="invalid">
-                  {errors.confirmPassword}
-                </Form.Control.Feedback>
-              </FloatingLabel>
+              <div className="position-relative">
+                <FloatingLabel label="Password" className="mb-3">
+                  <Form.Control
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    isInvalid={!!errors.password}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.password}
+                  </Form.Control.Feedback>
+                </FloatingLabel>
+                <button
+                  type="button"
+                  className="pwdShow"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
+              <div className="position-relative">
+                <FloatingLabel label="Confirm Password" className="mb-3">
+                  <Form.Control
+                    name="confirmPassword"
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="Confirm Password"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    isInvalid={!!errors.confirmPassword}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.confirmPassword}
+                  </Form.Control.Feedback>
+                </FloatingLabel>
+                <button
+                  type="button"
+                  className="pwdShow"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? "Hide" : "Show"}
+                </button>
+              </div>
             </div>
           )}
 

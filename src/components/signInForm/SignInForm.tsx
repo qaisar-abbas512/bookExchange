@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { loginUser } from "../../services/services";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignInForm: React.FC = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState(false);
+
   const [errors, setErrors] = useState<{ email?: string; password?: string }>(
     {}
   );
@@ -45,6 +48,7 @@ const SignInForm: React.FC = () => {
       toast.success(data.message);
       localStorage.setItem("token", data.token);
       window.location.href = "/";
+      navigate("/");
     } catch (err: any) {
       toast.error(err);
       setError("Invalid email or password");
@@ -73,30 +77,38 @@ const SignInForm: React.FC = () => {
             {errors.email}
           </Form.Control.Feedback>
         </FloatingLabel>
-
-        <FloatingLabel
-          controlId="floatingPassword"
-          label="Password"
-          className="mb-4"
-        >
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            isInvalid={!!errors.password}
-          />
-          <Form.Control.Feedback type="invalid">
-            {errors.password}
-          </Form.Control.Feedback>
-        </FloatingLabel>
+        <div className="position-relative">
+          <FloatingLabel
+            controlId="floatingPassword"
+            label="Password"
+            className="mb-4"
+          >
+            <Form.Control
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              isInvalid={!!errors.password}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.password}
+            </Form.Control.Feedback>
+          </FloatingLabel>
+          <button
+            type="button"
+            className="pwdShow"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? "Hide" : "Show"}
+          </button>
+        </div>
 
         {/* {error && <p className="text-danger">{error}</p>} */}
 
         <div className="d-flex justify-content-end mb-4">
-          <button type="button" className="btnForget">
+          <Link to="/reset-password" type="button" className="btnForget">
             Forgot Password?
-          </button>
+          </Link>
         </div>
 
         <Button

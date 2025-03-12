@@ -1,169 +1,160 @@
-body{
-      font-family: "Inria Serif", serif;
-      font-size: 14px;
-
+body {
+  font-family: "Inria Serif", serif;
+  font-size: 14px;
 }
-button{
-          font-family: "DM Sans", sans-serif !important;
-
+button {
+  font-family: "DM Sans", sans-serif !important;
 }
-.bgSignin{
-    background-image: url(/public/images/bg-signIn.png);
-    background-position: center;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+.bgSignin {
+  background-image: url(/public/images/bg-signIn.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
-.primaryColor{
-    color: #2E5A88;
+.primaryColor {
+  color: #2e5a88;
 }
-.bgPrimary{
-    color: #2E5A88;
+.bgPrimary {
+  color: #2e5a88;
 }
-.btnPrimary{ padding: 12px 16px;
-     border-radius: 8px; 
-    font-size: 16px;
-      font-family: "DM Sans", sans-serif;
-    font-weight: 700;
-    color: white;
-    border: none;
-    background-color: #2E5A88;
+.btnPrimary {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  color: white;
+  border: none;
+  background-color: #2e5a88;
 }
-.btnSecondary{ 
-    padding: 12px 16px;
-     border-radius: 8px; 
-    font-size: 16px;
-      font-family: "DM Sans", sans-serif;
-    font-weight: 700;
-    color: black;
-    border: 1px solid #595D62;
-    background-color: transparent;
+.btnSecondary {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  color: black;
+  border: 1px solid #595d62;
+  background-color: transparent;
 }
-.btnForget{
-font-weight: 700;
-font-size: 14px;
-color: var(--Main-trunks, #595D62);
+.btnForget {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--Main-trunks, #595d62);
   font-family: "DM Sans", sans-serif;
   border: none;
   padding: 0;
-
-
-
 }
-.signContentWrapper{
-    max-width: 450px;
+.signContentWrapper {
+  max-width: 450px;
 }
-.signinWrapper{
-    padding: 0 90px;
-    width: 100%;
-    max-width: 1440px;
+.signinWrapper {
+  padding: 0 90px;
+  width: 100%;
+  max-width: 1440px;
 }
-.signIn-heading{
-    font-size: 65px;
-    color: white;
-    font-weight: 700;
+.signIn-heading {
+  font-size: 65px;
+  color: white;
+  font-weight: 700;
 }
-.likeBody{
-    padding: 0 0 0 92px;
+.likeBody {
+  padding: 0 0 0 92px;
 }
-.heading32{
-    font-size: 32px;
-    font-weight:700;
-    color: white;
+.heading32 {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
 }
-.heading40{
-    font-size: 40px;
-    font-weight:700;
+.heading40 {
+  font-size: 40px;
+  font-weight: 700;
 }
-.font24{
-    font-size: 24px;
+.font24 {
+  font-size: 24px;
 }
-.signIn-form{
-    background: #F5F5F5;
-    border-radius: 12px;
-    padding: 24px;
-    width: 500px;
-   
+.signIn-form {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 24px;
+  width: 500px;
 }
-.pwdShow{
-    font-size: 14px;
-    color: black;
-    text-decoration: underline;
+.pwdShow {
+  font-size: 14px;
+  color: black;
+  text-decoration: underline;
   font-family: "DM Sans", sans-serif;
   padding: 0;
   border: none;
   background: transparent;
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  top: 20px;
+  right: 40px;
 }
 .custom-checkbox .form-check-input {
   background-color: transparent; /* Default transparent background */
-  border: 2px solid #2E5A88; /* Dark border */
+  border: 2px solid #2e5a88; /* Dark border */
   width: 20px;
   height: 20px;
   transition: all 0.3s ease-in-out;
 }
 
 .custom-checkbox .form-check-input:checked {
-  background-color: #2E5A88;
-  border-color: #2E5A88; 
+  background-color: #2e5a88;
+  border-color: #2e5a88;
 }
 
 .custom-checkbox .form-check-label {
-  margin-left: 12px; 
+  margin-left: 12px;
 }
-.divider{
-    margin: 20px 0 12px 0;
-    color: #E2E2E2;
+.divider {
+  margin: 20px 0 12px 0;
+  color: #e2e2e2;
 }
-.dontHave{
-    font-size: 14px;
-    color: #595D62;
-      font-family: "DM Sans", sans-serif;
+.dontHave {
+  font-size: 14px;
+  color: #595d62;
+  font-family: "DM Sans", sans-serif;
 }
-.btnSignUp{
-    font-size: 14px;
-    font-weight: 700;
-    color: #2E5A88;
-    border: none;
-    background: transparent;
+.btnSignUp {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2e5a88;
+  border: none;
+  background: transparent;
 }
-p.emailContent{
-    font-size: 20px;
-    color: #24292E;
+p.emailContent {
+  font-size: 20px;
+  color: #24292e;
 }
-img.profilePicture{
-    height: 64px;
-    width: 64px;
-    border: 1px solid #E2E2E2;
-    border-radius: 100%;
-    position: relative;
-   
+img.profilePicture {
+  height: 64px;
+  width: 64px;
+  border: 1px solid #e2e2e2;
+  border-radius: 100%;
+  position: relative;
 }
-button.profileEdit{
-    background-color: white;
-    box-shadow: 0px 0px 1px 0px #00000066;
-    box-shadow: 0px 6px 6px -6px #00000029;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: -6px;
-    right: 43%;
-    border: none;
-    border-radius: 100%;
-   
+button.profileEdit {
+  background-color: white;
+  box-shadow: 0px 0px 1px 0px #00000066;
+  box-shadow: 0px 6px 6px -6px #00000029;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -6px;
+  right: 43%;
+  border: none;
+  border-radius: 100%;
 }
-.prsnlDtl{
-    
-          font-family: "DM Sans", sans-serif;
-
+.prsnlDtl {
+  font-family: "DM Sans", sans-serif;
 }
 .custom-progress .progress-bar {
-  background-color: #2E5A88 !important; /* Custom filled color */
+  background-color: #2e5a88 !important; /* Custom filled color */
   height: 4px;
 }
 .custom-progress {
@@ -172,130 +163,124 @@ button.profileEdit{
 /* button.pwdShow.\32 {
     bottom: 35px;
 } */
-.Password{
-    height: 4px;
-    width: 100%;
-    border-radius: 100px;
-    
+.Password {
+  height: 4px;
+  width: 100%;
+  border-radius: 100px;
 }
-.weakpswd{
-    background-color: #D33030;
+.weakpswd {
+  background-color: #d33030;
 }
-.moderatepswd{
-    background-color: #FFB319;
+.moderatepswd {
+  background-color: #ffb319;
 }
-.strongpswd{
-    background-color: #95F1D5;
+.strongpswd {
+  background-color: #95f1d5;
 }
-.securepswd{
-    background-color: #2E7D32;
+.securepswd {
+  background-color: #2e7d32;
 }
-.toolltips{
-    padding: 6px;
-    background:rgba(0, 0, 0, 0.04);
-    border-radius: 8px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+.toolltips {
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.infoIcon{
-    padding: 6px;
-    background:rgba(0, 0, 0, 0.04);
-    border-radius: 100%;
+.infoIcon {
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 100%;
   width: 36px;
   height: 36px;
   text-align: center;
 }
-.btnSignin{
-    padding: 12px 16px;
-    border-radius: 8px;
-    color: white;
-    background-color: #2E5A88;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border: none;
-   
+.btnSignin {
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: white;
+  background-color: #2e5a88;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
 }
-.navLinks{
-    font-size: 16px;
-    font-weight: 500;
-    color: #2E5A88;
-    font-family: "DM Sans", sans-serif;
+.navLinks {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2e5a88;
+  font-family: "DM Sans", sans-serif;
 }
-.navLinks:hover{
-box-shadow: 0px -2px 0px 0px #2E5A88 inset;
+.navLinks:hover {
+  box-shadow: 0px -2px 0px 0px #2e5a88 inset;
 }
-.exploreBox{
-    background-color: #2E5A88;
-    border-radius: 16px;
-    padding: 24px;
-    color: white;
-    margin: 22px 0 30px;
-  
+.exploreBox {
+  background-color: #2e5a88;
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+  margin: 22px 0 30px;
 }
-.exploreBox h2.title{
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 8px;
+.exploreBox h2.title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
-.exploreBox p.content{
-    font-size:16px;
-    font-family: "DM Sans", sans-serif;
+.exploreBox p.content {
+  font-size: 16px;
+  font-family: "DM Sans", sans-serif;
 }
-input.searchInput{
-    border: 1px solid #E2E2E2;
-    border-radius: 8px;
-    padding: 8px 8px 8px 36px;
-    width: 308px;
-  
+input.searchInput {
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 8px 8px 8px 36px;
+  width: 308px;
 }
-.searchIcon{
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
+.searchIcon {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
 }
-.bookCard{
- border: 1px solid  #E2E2E2;
- box-shadow: 0px 0px 1px 0px #00000066;
- box-shadow: 0px 8px 24px -6px #00000029;
- background-color: white;
- border-radius: 16px;
-
+.bookCard {
+  border: 1px solid #e2e2e2;
+  box-shadow: 0px 0px 1px 0px #00000066;
+  box-shadow: 0px 8px 24px -6px #00000029;
+  background-color: white;
+  border-radius: 16px;
 }
-.bookImg{
-    width: 100%;
+.bookImg {
+  width: 100%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
-.cardContent{
-    padding: 16px 12px;
-
+.cardContent {
+  padding: 16px 12px;
 }
-.author{
-    font-size: 10px;
-    color: #595D62;
+.author {
+  font-size: 10px;
+  color: #595d62;
 }
-.authorName{
-    font-size: 12px;
-    font-weight: 700;
-    color: #595D62;
+.authorName {
+  font-size: 12px;
+  font-weight: 700;
+  color: #595d62;
 }
-.availableTag{
-    padding: 0 4px;
-    border-radius: 4px;
-    background-color: #40A69F;
-    color: white;
-    font-size: 9px;
-    font-weight: 700;
-    font-family: "DM Sans", sans-serif;
+.availableTag {
+  padding: 0 4px;
+  border-radius: 4px;
+  background-color: #40a69f;
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  font-family: "DM Sans", sans-serif;
 }
-.reservedTag{
-    background-color: black;
+.reservedTag {
+  background-color: black;
 }
-.bookSold{
-    font-size: 12px;
-    font-weight: 700;
-    color: #595D62;
+.bookSold {
+  font-size: 12px;
+  font-weight: 700;
+  color: #595d62;
 }
