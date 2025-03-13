@@ -284,3 +284,10 @@ input.searchInput {
   font-weight: 700;
   color: #595d62;
 }
+label.profileEdit {
+    position: absolute;
+    bottom: 6px;
+    right: 0;
+    left: 45px;
+    cursor: pointer;
+}
