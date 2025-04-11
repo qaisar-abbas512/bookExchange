@@ -4,7 +4,7 @@ const SearchByFilter = () => {
   return (
     <>
       <div className="d-flex align-items-center gap-2 mb-4">
-        <div className="position-relative">
+        <div className="position-relative z-n1">
           <input
             type="search"
             placeholder="Search by title or author"
