@@ -31,7 +31,7 @@ const Home = () => {
         <ExploreBook
           title={"Explore Books"}
           content={
-            "Lorem ipsum dolor sit amet consectetur. At nisi vel viverra in turpis. Faucibus faucibus tincidunt lobortis "
+            "Explore a world of stories, knowledge, and imagination through every page you turn. "
           }
         />
         <SearchByFilter />

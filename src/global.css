@@ -243,8 +243,19 @@ button.btnHdrProfile{
   border-color: transparent;
   
 }
+.btnFilter{
+  background: transparent;
+  padding: 8px;
+  border-radius: 8px;
+  border-color: transparent;
+}
 button#notification-dropdown:hover {
   background: #01010126 !important;
+  border-color: transparent;
+  
+}
+button#dropdown-basic:hover {
+  background: var(--Main-heles, rgba(0, 0, 0, 0.04));
   border-color: transparent;
 }
 button.btnHdrProfile strong{
@@ -323,6 +334,21 @@ button.btnAllread{
 .notificationMenu{
   overflow-y: scroll;
   height: 280px
+}
+
+---------------Home-page--------------------
+.filterCld span.filterNmbr {
+  background: rgba(46, 90, 136, 0.12);
+  padding:0 8px;
+  border-radius: 99px;
+  font-size: 12px;
+  color: #2e5a88;
+  text-align: center;
+}
+.filterDrp.show.dropdown .dropdown-menu.show{
+width: 220px;
+padding: 0;
+margin-top: 8px;
 }
 .exploreBox {
   background-color: #2e5a88;
