@@ -10,14 +10,17 @@ const NotificationDropdown = () => {
   return (
     <Dropdown align="end" show={show} onToggle={setShow}>
       <Dropdown.Toggle
-        variant="light"
         id="notification-dropdown"
         onClick={toggleDropdown}
+        className="btnNotification"
       >
-        🔔
+        <img src="/images/bell-icon.svg" alt="notification" />
       </Dropdown.Toggle>
 
-      <Dropdown.Menu className="p-3" style={{ width: "300px" }}>
+      <Dropdown.Menu
+        className="p-3"
+        style={{ width: "407px", borderRadius: "8px" }}
+      >
         <div className="d-flex justify-content-between align-items-center mb-2">
           <strong>Notifications</strong>
           <button
@@ -26,23 +29,60 @@ const NotificationDropdown = () => {
             onClick={closeDropdown}
           />
         </div>
-
         <div className="d-flex mb-2">
-          <button className="btn btn-sm btn-primary me-2">All</button>
-          <button className="btn btn-sm btn-outline-secondary">Unread</button>
+          <button className="btnAllread me-2">All</button>
+          <button className="border-0 bg-transparent">Unread</button>
         </div>
-
+        <hr />
         {/* Example notifications */}
-        <div>
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="d-flex align-items-start mb-2">
-              <span className="me-2">🔥</span>
-              <div>
-                <div className="fw-bold">New Request</div>
-                <small>Rupi Kaur</small>
-              </div>
+        <div className="notificationMenu">
+          {/* {[...Array(5)].map((_, i) => ( */}
+          <div className="d-flex align-items-start mb-2">
+            <span className="me-2">
+              <img src="/images/flam-icon.svg" alt="new" />
+            </span>
+            <div>
+              <div className="fw-bold">New Request</div>
+              <small>Rupi Kaur</small>
             </div>
-          ))}
+          </div>
+          <div className="d-flex align-items-start mb-2">
+            <span className="me-2">
+              <img src="/images/flam-icon.svg" alt="new" />
+            </span>
+            <div>
+              <div className="fw-bold">New Request</div>
+              <small>Rupi Kaur</small>
+            </div>
+          </div>
+          <div className="d-flex align-items-start mb-2">
+            <span className="me-2">
+              <img src="/images/chat-icon.svg" alt="new" />
+            </span>
+            <div>
+              <div className="fw-bold">New Message</div>
+              <small>Rupi Kaur</small>
+            </div>
+          </div>
+          <div className="d-flex align-items-start mb-2">
+            <span className="me-2">
+              <img src="/images/chat-icon.svg" alt="new" />
+            </span>
+            <div>
+              <div className="fw-bold">New Message</div>
+              <small>Rupi Kaur</small>
+            </div>
+          </div>
+          <div className="d-flex align-items-start mb-2">
+            <span className="me-2">
+              <img src="/images/chat-icon.svg" alt="new" />
+            </span>
+            <div>
+              <div className="fw-bold">New Message</div>
+              <small>Rupi Kaur</small>
+            </div>
+          </div>
+          {/* ))} */}
         </div>
       </Dropdown.Menu>
     </Dropdown>
