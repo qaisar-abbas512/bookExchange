@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const API_BASE_URL = "http://localhost:5000/api/auth";
+const API_BASE_URL2 = "https://fakerestapi.azurewebsites.net/api/v1";
 
 // Login API
 export const loginUser = async (email, password) => {
@@ -9,6 +10,15 @@ export const loginUser = async (email, password) => {
       email,
       password,
     });
+    return response.data; // Returns the token and other user info
+  } catch (error) {
+    throw error.response?.data?.message || "Login failed. Try again.";
+  }
+};
+
+export const dummyApi = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL2}/Activities`);
     return response.data; // Returns the token and other user info
   } catch (error) {
     throw error.response?.data?.message || "Login failed. Try again.";

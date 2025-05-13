@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
-import { loginUser } from "../../services/services";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../../services/services";
 
 const SignInForm: React.FC = () => {
   const navigate = useNavigate();

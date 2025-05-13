@@ -1,19 +1,20 @@
 import React from "react";
 
 interface BookCardProps {
-  bookTitle: string;
-  author: string;
+  item: any; // Replace `any` with a proper type if you know it
 }
 
-const BookCard: React.FC<BookCardProps> = ({ bookTitle, author }) => {
+const BookCard: React.FC<BookCardProps> = ({ item }) => {
+  console.log(item, "item");
+
   return (
     <div className="bookCard">
       <img className="bookImg" src="/images/book-image.png" alt="book" />
       <div className="cardContent">
-        <h2 className="fs-5 fw-bold mb-2">{bookTitle}</h2>
+        <h2 className="fs-5 fw-bold mb-2">{item.title}</h2>
         <div className="d-flex align-items-center gap-1 justify-content-between mb-2">
           <div className="d-flex align-items-center gap-1 author">
-            <span className="authorName">{author}.</span> Author
+            <span className="authorName">{item.dueDate}</span> Author
           </div>
           <div className="availableTag">Available</div>
           {/* <div className="availableTag reservedTag">Reserved</div> */}
@@ -25,7 +26,9 @@ const BookCard: React.FC<BookCardProps> = ({ bookTitle, author }) => {
             <img src="/images/filled-star.svg" alt="rating" />
             <img src="/images/filled-star.svg" alt="rating" />
             <img src="/images/unfilled-Star.svg" alt="rating" />
-            <strong className="bookSold">450 sold</strong>
+            <strong className="bookSold">
+              {item.completed === true ? "dsfsdf" : ""}
+            </strong>
           </div>
           <button className="bg-transparent border-0">
             <img src="/images/unfilled-heart-Icon.svg" alt="UnlikeLike" />

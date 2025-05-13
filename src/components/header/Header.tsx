@@ -4,10 +4,15 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
+import NotificationDropdown from "../notification/Notification";
 
 const Header = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary py-4 z-3">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      className="bg-body-tertiary py-4 header"
+    >
       <Container>
         <Navbar.Brand href="#home" className="fs-4 fw-bold me-5">
           LOGO
@@ -21,6 +26,7 @@ const Header = () => {
             {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
           </Nav>
           <Nav>
+            <NotificationDropdown />
             <Link to="/sign-in" className="btnSignin">
               <img src="/images/user-white-icon.svg" alt="user" /> Sign in
             </Link>
