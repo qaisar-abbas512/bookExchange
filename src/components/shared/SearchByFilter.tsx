@@ -31,7 +31,6 @@ const SearchByFilter = () => {
                 <img src="/images/filter-Icon.svg" alt="filter" />
                 <span className="text-black">Choose Filter</span>
               </div>
-              <hr className="p-0 m-0" />
               <div className="p-3 pb-0">
                 <Form.Select
                   aria-label="Default select example"
@@ -56,7 +55,10 @@ const SearchByFilter = () => {
             </button>
           </div>
         </div>
+        <div className="flex-grow-1 text-end">
         <AddBookOffcanvas buttonLabel="+ Add Book" />
+        </div>
+      
       </div>
     </>
   );
