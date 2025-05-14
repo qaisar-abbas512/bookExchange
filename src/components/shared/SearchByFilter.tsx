@@ -55,10 +55,6 @@ const SearchByFilter = () => {
             </button>
           </div>
         </div>
-        <div className="flex-grow-1 text-end">
-        <AddBookOffcanvas buttonLabel="+ Add Book" />
-        </div>
-      
       </div>
     </>
   );

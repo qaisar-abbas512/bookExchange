@@ -12,6 +12,7 @@ import SentApprovalEmail from "./pages/signUpScreen/SentApprovalEmail";
 import Home from "./pages/home/Home";
 import { ToastContainer } from "react-toastify";
 import "./global.css";
+import BookManagement from "./pages/bookManagement/BookManagement";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/book-management" element={<BookManagement />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/sent-email" element={<SentEmailScreen />} />

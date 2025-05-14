@@ -42,22 +42,6 @@ const Home = () => {
                 <BookCard item={item} />
               </Col>
             ))}
-
-            {/* <Col xs={6} md={3}>
-              <BookCard bookTitle={"Milk and honey"} author={"Rupi Kaur"} />
-            </Col>
-            <Col xs={6} md={3}>
-              <BookCard bookTitle={"Milk and honey"} author={"Rupi Kaur"} />
-            </Col>
-            <Col xs={6} md={3}>
-              <BookCard bookTitle={"Milk and honey"} author={"Rupi Kaur"} />
-            </Col>
-            <Col xs={6} md={3}>
-              <BookCard bookTitle={"Milk and honey"} author={"Rupi Kaur"} />
-            </Col>
-            <Col xs={6} md={3}>
-              <BookCard bookTitle={"Milk and honey"} author={"Rupi Kaur"} />
-            </Col> */}
           </Row>
         </div>
       </div>

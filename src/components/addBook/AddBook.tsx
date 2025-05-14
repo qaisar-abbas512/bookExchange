@@ -19,7 +19,10 @@ const AddBookOffcanvas: React.FC<NotificationOffcanvasProps> = ({
 
   return (
     <>
-      <button className="btnSignin d-inline-block" onClick={handleShow}>
+      <button
+        className="border-0 bg-transparent fw-semibold d-inline-block"
+        onClick={handleShow}
+      >
         {buttonLabel}
       </button>
 
