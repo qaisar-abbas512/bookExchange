@@ -13,6 +13,7 @@ import Home from "./pages/home/Home";
 import { ToastContainer } from "react-toastify";
 import "./global.css";
 import BookManagement from "./pages/bookManagement/BookManagement";
+import WishlistBooks from "./pages/wishlist/WishlistBooks";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/book-management" element={<BookManagement />} />
+          <Route path="/wishlist" element={<WishlistBooks />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/sent-email" element={<SentEmailScreen />} />
