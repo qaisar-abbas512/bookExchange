@@ -350,6 +350,26 @@ width: 220px;
 padding: 0;
 margin-top: 8px;
 }
+
+
+----------------addBook--------------------
+/* .customOffcanvasBody .canvasBtn{
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 20px !important;
+} */
+.uploadBookImg {
+  width: 75px;
+  height: 75px;
+
+}
+.uploadBookImg .btnDltBookImg {
+  position: absolute;
+  top: 3px;
+  right: -5px;
+  border: none;
+  border-radius: 100%;
+}
 .exploreBox {
   background-color: #2e5a88;
   border-radius: 16px;

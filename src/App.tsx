@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignIn from "./pages/login/SignIn";
@@ -10,6 +11,7 @@ import SignUpScreen from "./pages/signUpScreen/SignUpScreen";
 import SentApprovalEmail from "./pages/signUpScreen/SentApprovalEmail";
 import Home from "./pages/home/Home";
 import { ToastContainer } from "react-toastify";
+import "./global.css";
 
 function App() {
   return (
