@@ -14,6 +14,7 @@ import { ToastContainer } from "react-toastify";
 import "./global.css";
 import BookManagement from "./pages/bookManagement/BookManagement";
 import WishlistBooks from "./pages/wishlist/WishlistBooks";
+import Chat from "./pages/chatScreen/Chat";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/book-management" element={<BookManagement />} />
           <Route path="/wishlist" element={<WishlistBooks />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/sent-email" element={<SentEmailScreen />} />
